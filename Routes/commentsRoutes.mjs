@@ -7,7 +7,8 @@ router.get("/", (req, res) => {
   res.json(comments);
 });
 
-router.get("/:id", (req, res) => {
+router
+.get("/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const comment = comments.find(c => c.id === id);
 
@@ -16,9 +17,9 @@ router.get("/:id", (req, res) => {
   }
 
   res.json(comment);
-});
+})
 
-router.post("/", (req, res) => {
+.post("/", (req, res) => {
   const { userId, title, content } = req.body;
 
   if (!userId || !title || !content) {
@@ -34,9 +35,9 @@ router.post("/", (req, res) => {
 
   comments.push(newComment);
   res.status(201).json(newComment);
-});
+})
 
-router.delete("/:id", (req, res) => {
+.delete("/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const index = comments.findIndex(c => c.id === id);
 

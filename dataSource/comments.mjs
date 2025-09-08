@@ -9,11 +9,17 @@ export const comments = [
     id: 2,
     userId: 2,
     title: "Sample comment",
-    content: "This is a comment."
+    content: "This is Halloween Town."
   },
    {
     id: 3,
     userId: 3,
+    title: "Sample comment",
+    content: "This is a comment."
+  },
+ {
+    id: 4,
+    userId: 4,
     title: "Sample comment",
     content: "This is a comment."
   }

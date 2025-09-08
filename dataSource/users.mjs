@@ -22,7 +22,7 @@ export const users = [
         name: "Tonya",
         username: "QueenOfHalloween",
         Email: "HalloweenLover@example.com",
-    },
+    }
 ];
 
 export default users;
