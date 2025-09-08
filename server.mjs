@@ -3,6 +3,7 @@ import usersRoutes from "./Routes/usersRoutes.mjs";
 import commentsRoutes from "./Routes/commentsRoutes.mjs";
 import postsRoutes from "./Routes/postsRoutes.mjs";
 import { errHandler } from "./middleware/errHandler.mjs";
+import users from "./dataSource/users.mjs";
 
 const app = express(); // calling Express to use in the future
 const PORT = process.env.PORT || 3000;
@@ -17,12 +18,17 @@ app.use("/api/users", usersRoutes);
 app.use("/api/comments", commentsRoutes);
 app.use("/api/posts", postsRoutes);
 
+app.set("view engine", "ejs");
+app.set("views", "./views"); 
+
 // Default Route
 app.get("/", (req, res) => {
   res.send("Welcome to the User-Friendly Express Server API!");
 });
 
-
+app.get("/views/users", (req, res) => {
+  res.render("users", { users });
+});
 
 app.use((req, res) => {
   res.status(404).json({ msg: "Resource Not Found" });
