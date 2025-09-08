@@ -2,7 +2,7 @@ import express from "express";
 import usersRoutes from "./Routes/usersRoutes.mjs";
 import commentsRoutes from "./Routes/commentsRoutes.mjs";
 import postsRoutes from "./Routes/postsRoutes.mjs";
-// import errHandler from "./middleware/errHandler.mjs";
+import { errHandler } from "./middleware/errHandler.mjs";
 
 const app = express(); // calling Express to use in the future
 const PORT = process.env.PORT || 3000;
@@ -27,6 +27,9 @@ app.get("/", (req, res) => {
 app.use((req, res) => {
   res.status(404).json({ msg: "Resource Not Found" });
 });
+
+// Error Handling
+app.use(errHandler);
 
 // Created an Error Handling Middleware to handle this 
 /* app.use(function (err, req, res, next) {
