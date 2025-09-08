@@ -19,7 +19,40 @@ router
   res.json(comment);
 })
 
-.post("/", (req, res) => {
+router.post("/", (req, res, next) => {
+  try {
+    const { userId, title, content } = req.body;
+
+    if (!userId || !title || !content) {
+      const err = new Error("Missing required fields");
+      err.status = 400;
+      throw err;
+    }
+
+    const newComment = {
+      id: comments.length + 1,
+      userId,
+      title,
+      content
+    };
+
+    comments.push(newComment);
+    res.status(201).json(newComment);
+
+  } catch (err) {
+    next(err); // 🔥 Pass to error handler
+  }
+})
+
+
+/* router.post("/", (req, res) => {
+  // console.log("POST /api/comments called");
+  // console.log("Request body:", req.body);
+
+  if (!req.body) {
+    return res.status(400).json({ error: "Missing request body" });
+  }
+
   const { userId, title, content } = req.body;
 
   if (!userId || !title || !content) {
@@ -34,8 +67,10 @@ router
   };
 
   comments.push(newComment);
+  console.log("New comment added:", newComment);
   res.status(201).json(newComment);
-})
+
+}) */
 
 .delete("/:id", (req, res) => {
   const id = parseInt(req.params.id);
