@@ -23,7 +23,6 @@ Whether you're serving static files, building APIs, or integrating with a fronte
 - [Express.js](https://expressjs.com/) – Web framework for Node.js
 - [Node.js](https://nodejs.org/) – JavaScript runtime environment
 - [dotenv](https://www.npmjs.com/package/dotenv) – Loads environment variables from a `.env` file
-- [morgan](https://www.npmjs.com/package/morgan) – HTTP request logger middleware (optional)
 
 ## Installation
 

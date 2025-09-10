@@ -4,7 +4,7 @@ import commentsRoutes from "./Routes/commentsRoutes.mjs";
 import postsRoutes from "./Routes/postsRoutes.mjs";
 import { errHandler } from "./middleware/errHandler.mjs";
 import users from "./dataSource/users.mjs";
-import userInfo from "./dataSource/usersInfo.mjs"; 
+import userInfo  from "./dataSource/usersInfo.mjs"; 
 
 
 
