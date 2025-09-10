@@ -34,7 +34,7 @@ app.get("/views/users", (req, res) => {
   res.render("users", { users });
 });
 
-// 🔥 Place your form handler HERE:
+// Form handler 
 app.post("/views/users", (req, res) => {
   const { name, email } = req.body;
 
