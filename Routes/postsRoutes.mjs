@@ -110,4 +110,5 @@ router
     res.json(deletedPost[0]);
 });
 
+
 export default router;

@@ -4,6 +4,9 @@ import commentsRoutes from "./Routes/commentsRoutes.mjs";
 import postsRoutes from "./Routes/postsRoutes.mjs";
 import { errHandler } from "./middleware/errHandler.mjs";
 import users from "./dataSource/users.mjs";
+import userInfo from "./dataSource/usersInfo.mjs"; 
+
+
 
 const app = express(); // calling Express to use in the future
 const PORT = process.env.PORT || 3000;
@@ -30,6 +33,19 @@ app.get("/", (req, res) => {
 app.get("/views/users", (req, res) => {
   res.render("users", { users });
 });
+
+// 🔥 Place your form handler HERE:
+app.post("/views/users", (req, res) => {
+  const { name, email } = req.body;
+
+  if (!name || !email) {
+    return res.status(400).send("Name and Email are required.");
+  }
+
+  users.push({ name, email });
+  res.redirect("/views/users");
+});
+
 
 app.use((req, res) => {
   res.status(404).json({ msg: "Resource Not Found" });

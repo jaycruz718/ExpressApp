@@ -10,6 +10,19 @@
     <% users.forEach(user => { %>
       <li><strong><%= user.name %></strong> - <%= user.email %></li>
     <% }) %>
+    <br /> <br />
+
+    <!-- User Form -->
+     <h2>Add New User</h2>
+     <form action="/views/users.ejs" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" required />
+
+      <button type="submit">Add User</button>
+     </form>
   </ul>
 </body>
 </html>
